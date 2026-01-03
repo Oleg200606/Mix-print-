@@ -1,65 +1,113 @@
-import Image from "next/image";
+// app/page.tsx - БЕЗ TAILWIND
+import HeroSection from '@/components/HeroSection';
+import { Package, Users, Shield, CheckCircle } from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <HeroSection />
+
+      {/* Преимущества */}
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title">Почему с нами работают крупные компании</h2>
+
+          <div className="advantages-grid">
+            <div className="advantage-card">
+              <div className="advantage-icon">
+                <Package size={28} />
+              </div>
+              <h3 className="advantage-title">Только опт</h3>
+              <p className="advantage-description">
+                Минимальный заказ от 100 тыс. руб. Персональные условия для каждого клиента.
+              </p>
+            </div>
+
+            <div className="advantage-card">
+              <div className="advantage-icon">
+                <Users size={28} />
+              </div>
+              <h3 className="advantage-title">Персональная поддержка</h3>
+              <p className="advantage-description">
+                Выделенный менеджер на всех этапах. Решаем любые задачи клиента.
+              </p>
+            </div>
+
+            <div className="advantage-card">
+              <div className="advantage-icon">
+                <Shield size={28} />
+              </div>
+              <h3 className="advantage-title">Полный цикл</h3>
+              <p className="advantage-description">
+                От дизайна до доставки. Контроль качества на каждом этапе производства.
+              </p>
+            </div>
+
+            <div className="advantage-card">
+              <div className="advantage-icon">
+                <CheckCircle size={28} />
+              </div>
+              <h3 className="advantage-title">Любая сложность</h3>
+              <p className="advantage-description">
+                Все виды печати: шелкография, вышивка, сублимация, тампопечать.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Клиенты */}
+      <section className="clients-section">
+        <div className="container">
+          <h2 className="section-title">Работаем с лидерами рынка</h2>
+          <div className="clients-grid">
+            {['IT-компании', 'Банки', 'Производство', 'Сети', 'Холдинги', 'Франшизы'].map((industry) => (
+              <div key={industry} className="client-item">
+                <span>{industry}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Процесс работы */}
+      <section className="section" style={{ backgroundColor: 'white' }}>
+        <div className="container">
+          <h2 className="section-title">Схема работы с оптовыми клиентами</h2>
+
+          <div className="process-grid">
+            <div className="process-step">
+              <div className="step-number">1</div>
+              <h3 className="step-title">Запрос</h3>
+              <p className="step-description">Вы оставляете заявку или ТЗ</p>
+            </div>
+
+            <div className="process-step">
+              <div className="step-number">2</div>
+              <h3 className="step-title">Расчет</h3>
+              <p className="step-description">Персональный менеджер готовит КП</p>
+            </div>
+
+            <div className="process-step">
+              <div className="step-number">3</div>
+              <h3 className="step-title">Производство</h3>
+              <p className="step-description">Изготовление и контроль качества</p>
+            </div>
+
+            <div className="process-step">
+              <div className="step-number">4</div>
+              <h3 className="step-title">Доставка</h3>
+              <p className="step-description">Отправка по РФ и СНГ</p>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="/request" className="btn-orange">
+              Начать сотрудничество
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

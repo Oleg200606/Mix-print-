@@ -1,0 +1,26 @@
+/* app/force-styles.css */
+/* Принудительно применяем Tailwind классы через CSS */
+
+.bg-blue-600 {
+    background-color: #2563eb !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem !important;
+}
+
+.p-4 {
+    padding: 1rem !important;
+}
+
+.m-4 {
+    margin: 1rem !important;
+}
+
+.font-bold {
+    font-weight: 700 !important;
+}
