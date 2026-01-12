@@ -3,3 +3,5 @@ nginx/
 Dockerfile
 *.md
 certbot/
+.gitignore
+.*/
