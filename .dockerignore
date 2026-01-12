@@ -1,0 +1,4 @@
+nginx/
+*.yml
+Dockerfile
+*.md
