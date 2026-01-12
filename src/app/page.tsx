@@ -1,6 +1,6 @@
 // app/page.tsx - БЕЗ TAILWIND
-import HeroSection from '@/components/HeroSection';
-import { Package, Users, Shield, CheckCircle } from 'lucide-react';
+import HeroSection from "@/components/HeroSection";
+import { Package, Users, Shield, CheckCircle } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -10,7 +10,9 @@ export default function HomePage() {
       {/* Преимущества */}
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Почему с нами работают крупные компании</h2>
+          <h2 className="section-title">
+            Почему с нами работают крупные компании
+          </h2>
 
           <div className="advantages-grid">
             <div className="advantage-card">
@@ -19,7 +21,8 @@ export default function HomePage() {
               </div>
               <h3 className="advantage-title">Только опт</h3>
               <p className="advantage-description">
-                Минимальный заказ от 100 тыс. руб. Персональные условия для каждого клиента.
+                Минимальный заказ от 100 тыс. руб. Персональные условия для
+                каждого клиента.
               </p>
             </div>
 
@@ -39,7 +42,8 @@ export default function HomePage() {
               </div>
               <h3 className="advantage-title">Полный цикл</h3>
               <p className="advantage-description">
-                От дизайна до доставки. Контроль качества на каждом этапе производства.
+                От дизайна до доставки. Контроль качества на каждом этапе
+                производства.
               </p>
             </div>
 
@@ -61,7 +65,14 @@ export default function HomePage() {
         <div className="container">
           <h2 className="section-title">Работаем с лидерами рынка</h2>
           <div className="clients-grid">
-            {['IT-компании', 'Банки', 'Производство', 'Сети', 'Холдинги', 'Франшизы'].map((industry) => (
+            {[
+              "IT-компании",
+              "Банки",
+              "Производство",
+              "Сети",
+              "Холдинги",
+              "Франшизы",
+            ].map((industry) => (
               <div key={industry} className="client-item">
                 <span>{industry}</span>
               </div>
@@ -71,7 +82,7 @@ export default function HomePage() {
       </section>
 
       {/* Процесс работы */}
-      <section className="section" style={{ backgroundColor: 'white' }}>
+      <section className="section" style={{ backgroundColor: "white" }}>
         <div className="container">
           <h2 className="section-title">Схема работы с оптовыми клиентами</h2>
 
@@ -85,13 +96,17 @@ export default function HomePage() {
             <div className="process-step">
               <div className="step-number">2</div>
               <h3 className="step-title">Расчет</h3>
-              <p className="step-description">Персональный менеджер готовит КП</p>
+              <p className="step-description">
+                Персональный менеджер готовит КП
+              </p>
             </div>
 
             <div className="process-step">
               <div className="step-number">3</div>
               <h3 className="step-title">Производство</h3>
-              <p className="step-description">Изготовление и контроль качества</p>
+              <p className="step-description">
+                Изготовление и контроль качества
+              </p>
             </div>
 
             <div className="process-step">
