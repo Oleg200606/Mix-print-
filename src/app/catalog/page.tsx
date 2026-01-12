@@ -54,18 +54,46 @@ export default function CatalogPage() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Запрос отправлен! С вами свяжется менеджер в течение 30 минут.');
-        setFormData({
-            name: '',
-            company: '',
-            phone: '',
-            email: '',
-            quantity: '100-500',
-            deadline: '2-4 недели',
-            comment: '',
-        });
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email,
+                    company: formData.company,
+                    subject: `Запрос КП: ${activeCategory || 'Каталог'}`,
+                    message: `Тираж: ${formData.quantity}\nСроки: ${formData.deadline}\nКомментарий: ${formData.comment}`,
+                    orderDetails: JSON.stringify(formData, null, 2)
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Запрос отправлен! С вами свяжется менеджер в течение 30 минут.');
+                setFormData({
+                    name: '',
+                    company: '',
+                    phone: '',
+                    email: '',
+                    quantity: '100-500',
+                    deadline: '2-4 недели',
+                    comment: '',
+                });
+            } else {
+                alert('Ошибка отправки. Пожалуйста, попробуйте еще раз или позвоните нам.');
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            alert('Ошибка отправки. Пожалуйста, попробуйте еще раз.');
+        }
     };
 
     return (

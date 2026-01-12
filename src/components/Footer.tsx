@@ -34,7 +34,10 @@ export default function Footer() {
                         <div className="space-y-3">
                             <div className="contact-item">
                                 <Phone className="contact-icon" />
-                                <span className="font-bold">8 (800) 123-45-67</span>
+                                <div>
+                                    <span className="font-bold">+7 (955) 505-40-01</span>
+                                    <p style={{ fontSize: '0.875rem', color: 'var(--color-gray-500)', marginTop: '0.25rem' }}>Оптовый отдел</p>
+                                </div>
                             </div>
                             <div className="contact-item">
                                 <Mail className="contact-icon" />

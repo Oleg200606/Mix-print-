@@ -40,8 +40,9 @@ export default function Header() {
                         <Phone className="phone-icon" />
                         <div>
                             <div className="phone-text">Оптовый отдел</div>
-                            <a href="tel:+78001234567" className="phone-number">
-                                8 (800) 123-45-67
+
+                            <a href="tel:+79555054001" className="phone-number">
+                                +7 (955) 505-40-01
                             </a>
                         </div>
                     </div>

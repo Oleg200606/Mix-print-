@@ -46,24 +46,53 @@ export default function RequestPage() {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        alert('Ваш запрос успешно отправлен! Менеджер свяжется с вами в течение 30 минут.');
-        // Сброс формы
-        setFormData({
-            name: '',
-            position: '',
-            company: '',
-            phone: '',
-            email: '',
-            orderType: 'mixed',
-            budget: '100000-300000',
-            deadline: '2-4 недели',
-            categories: { clothing: false, accessories: false, gifts: false },
-            hasLogo: 'yes',
-            comment: '',
-            getNewsletter: true,
-        });
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    phone: formData.phone,
+                    email: formData.email,
+                    company: formData.company,
+                    position: formData.position,
+                    subject: 'Запрос КП для юр. лица',
+                    message: formData.comment,
+                    orderDetails: `Тип заказа: ${formData.orderType}\nБюджет: ${formData.budget}\nСроки: ${formData.deadline}\nЛоготип: ${formData.hasLogo}\nКатегории: ${JSON.stringify(formData.categories)}`
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Ваш запрос успешно отправлен! Менеджер свяжется с вами в течение 30 минут.');
+                // Сброс формы
+                setFormData({
+                    name: '',
+                    position: '',
+                    company: '',
+                    phone: '',
+                    email: '',
+                    orderType: 'mixed',
+                    budget: '100000-300000',
+                    deadline: '2-4 недели',
+                    categories: { clothing: false, accessories: false, gifts: false },
+                    hasLogo: 'yes',
+                    comment: '',
+                    getNewsletter: true,
+                });
+            } else {
+                alert('Ошибка отправки. Пожалуйста, попробуйте еще раз или позвоните нам.');
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            alert('Ошибка отправки. Пожалуйста, попробуйте еще раз.');
+        }
     };
 
     return (
