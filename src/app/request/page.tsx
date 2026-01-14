@@ -1,7 +1,7 @@
 // app/request/page.tsx
 "use client";
 import { useState } from "react";
-import CommercialOfferForm from "@/components/CommercialOfferForm.tsx";
+import CommercialOfferForm from "@/components/CommercialOfferForm";
 import {
   Send,
   FileText,
